@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="kr.co.marketlink.examples.ViewPagerExampleActivity"
-    tools:showIn="@layout/activity_view_pager_example">
+    tools:showIn="@layout/activity_view_pager">
 
     <kr.co.marketlink.jsyang.ImageViewPager
         android:layout_width="match_parent"

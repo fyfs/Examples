@@ -1,29 +1,16 @@
 package kr.co.marketlink.examples;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import kr.co.marketlink.jsyang.ImageViewPager;
 
@@ -35,7 +22,7 @@ public class ViewPagerExampleActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         activity=this;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_pager_example);
+        setContentView(R.layout.activity_view_pager);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

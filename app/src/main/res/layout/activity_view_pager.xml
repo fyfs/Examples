@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_view_pager_example" />
+    <include layout="@layout/content_view_pager" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
