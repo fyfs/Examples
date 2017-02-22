@@ -24,7 +24,7 @@ public class Common {
     static public boolean testing=true;
 
     //Log tag
-    static public String myTag="LOG";
+    static public String myTag="MYLOG";
 
     //preference info
     static public String preferenceName="preferenceName!";
