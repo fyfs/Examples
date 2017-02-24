@@ -37,7 +37,6 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         dialogHelper.tv_contents.setText("Contents");
         dialogHelper.tv_btn1.setText("Btn1");
         dialogHelper.tv_btn1.setBackgroundColor(Common.getColor(getApplicationContext(),android.R.color.holo_green_dark));
-        dialogHelper.tv_btn2.setText("Btn2");
         dialogHelper.mDialogClickListener=new DialogHelper.DialogClickListener() {
             @Override
             public void OnClick(int dialogType, int btnNum) {

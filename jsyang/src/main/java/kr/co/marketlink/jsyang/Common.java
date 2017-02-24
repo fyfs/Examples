@@ -2,6 +2,7 @@ package kr.co.marketlink.jsyang;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.util.Log;
@@ -173,6 +174,26 @@ public class Common {
         Date date=new Date(value);
         Format format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return format.format(date);
+    }
+
+    /**
+     * dp를 px로 변환
+     * @param dp
+     * @return px
+     */
+    public static int dpToPx(int dp)
+    {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+    /**
+     * px를 dp로 변환
+     * @param px
+     * @return dp
+     */
+    public static int pxToDp(int px)
+    {
+        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
 
 }

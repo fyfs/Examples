@@ -77,9 +77,9 @@ public class DialogHelper implements View.OnClickListener{
      */
     public void show() {
         if(mDialogClickListener !=null){
-            tv_btn1.setOnClickListener(this);
-            tv_btn2.setOnClickListener(this);
-            tv_btn3.setOnClickListener(this);
+            if(tv_btn1!=null && !tv_btn1.getText().toString().equals(""))tv_btn1.setOnClickListener(this);
+            if(tv_btn2!=null && !tv_btn2.getText().toString().equals(""))tv_btn2.setOnClickListener(this);
+            if(tv_btn3!=null && !tv_btn3.getText().toString().equals(""))tv_btn3.setOnClickListener(this);
         }
         if(tv_title!=null && !tv_title.getText().toString().equals(""))tv_title.setVisibility(View.VISIBLE);
         if(tv_btn1!=null && !tv_btn1.getText().toString().equals(""))tv_btn1.setVisibility(View.VISIBLE);
