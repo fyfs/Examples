@@ -43,7 +43,7 @@ public class GalleryImage {
         //이미지 가져오기
         getImages(context,BUCKET_DISPLAY_NAME);
         //GridView에 Adapter 적용
-        galleryImageAdapter=new GalleryImageAdapter(context,R.layout.gallery_folder_item,list);
+        galleryImageAdapter=new GalleryImageAdapter(context,R.layout.gallery_image_item,list);
         gridView.setAdapter(galleryImageAdapter);
         //GridView 클릭 이벤트 처리
         gridView.setOnItemClickListener(itemClickListener);

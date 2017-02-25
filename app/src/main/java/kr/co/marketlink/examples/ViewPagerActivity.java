@@ -14,7 +14,7 @@ import java.util.List;
 
 import kr.co.marketlink.jsyang.ImageViewPager;
 
-public class ViewPagerExampleActivity extends AppCompatActivity{
+public class ViewPagerActivity extends AppCompatActivity{
 
     FragmentActivity activity=null;
 
