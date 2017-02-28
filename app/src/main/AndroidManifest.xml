@@ -23,13 +23,13 @@
         <activity android:name=".DialogActivity">
         </activity>
         <activity android:name=".GalleryFolderActivity">
-        </activity>
-        <activity android:name=".GalleryImageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".GalleryImageActivity">
         </activity>
         <activity android:name=".HorizontalImageActivity">
         </activity>

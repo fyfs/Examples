@@ -37,11 +37,6 @@ public class GalleryImageActivity extends AppCompatActivity implements View.OnCl
         btn_go.setOnClickListener(this);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
     void load() {
         //권한 확인
         if (!PermissionHelper.hasPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
