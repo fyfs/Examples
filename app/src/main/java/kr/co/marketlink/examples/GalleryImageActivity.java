@@ -26,7 +26,6 @@ import kr.co.marketlink.jsyang.PermissionHelper;
 public class GalleryImageActivity extends AppCompatActivity implements View.OnClickListener {
     final int REQUEST_PERMISSION = 1;
     GalleryImage galleryImage = null;
-    long clickTime;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,6 @@ public class GalleryImageActivity extends AppCompatActivity implements View.OnCl
     void load() {
         //권한 확인
         if (!PermissionHelper.hasPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            clickTime = System.currentTimeMillis();
             PermissionHelper.requestPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE, REQUEST_PERMISSION);
             return;
         }
