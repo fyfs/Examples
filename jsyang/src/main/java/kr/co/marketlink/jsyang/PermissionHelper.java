@@ -18,7 +18,7 @@ public class PermissionHelper {
      * @param permission 권한
      * @return true/false
      */
-    static boolean hasPermission(Context context, String permission){
+    static public boolean hasPermission(Context context, String permission){
         int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
         return !(permissionCheck==PackageManager.PERMISSION_DENIED);
     }
@@ -28,8 +28,8 @@ public class PermissionHelper {
      * @param activity Activity
      * @param permission 권한
      */
-    static void requestPermission(Activity activity, String permission){
-        ActivityCompat.requestPermissions(activity,new String[]{permission}, 0);
+    static public void requestPermission(Activity activity, String permission,int requestCode){
+        ActivityCompat.requestPermissions(activity,new String[]{permission}, requestCode);
     }
 
     /*
