@@ -32,6 +32,15 @@ public class PermissionHelper {
         ActivityCompat.requestPermissions(activity,new String[]{permission}, requestCode);
     }
 
+    /**
+     * 권한 요청
+     * @param activity Activity
+     * @param permissions 권한들
+     */
+    static public void requestPermission(Activity activity, String[] permissions,int requestCode){
+        ActivityCompat.requestPermissions(activity,permissions, requestCode);
+    }
+
     /*
     Activity에 아래 내용을 추가하면 권한을 (다시보지않기)로 거부했을 때 권한 받는 곳으로 이동시킨다
     long clickTime;

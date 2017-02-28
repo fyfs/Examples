@@ -21,8 +21,8 @@ public class GalleryFolderActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery_folder);
-        load();
         listView=(ListView)findViewById(R.id.lv_list);
+        load();
     }
 
     void load() {
