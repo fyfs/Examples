@@ -31,12 +31,15 @@
         </activity>
         <activity android:name=".CameraActivity">
         </activity>
-        <activity android:name=".RecorderActivity">
+        <activity android:name=".FullImageActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".RecorderActivity">
         </activity>
     </application>
 

@@ -47,6 +47,7 @@ public class HorizontalImage {
 
         horizontalImageAdapter = new HorizontalImage.HorizontalImageAdapter(context,list);
         recyclerView.setAdapter(horizontalImageAdapter);
+
     }
 
     /**
@@ -177,6 +178,7 @@ public class HorizontalImage {
             holder.iv_img.setImageBitmap(null);
             holder.mFrameLayout.setLayoutParams(new ViewGroup.LayoutParams(itemWidth, itemWidth));
             holder.imageUri=mList.get(position);
+            Common.log(mList.get(position));
             Picasso.with(mContext)
                     .load(Uri.parse("file://" + mList.get(position)))
                     .noPlaceholder()
