@@ -22,6 +22,10 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".SpinnerActivity"></activity>
         <activity android:name=".DialogActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".GalleryFolderActivity">
         </activity>
@@ -33,11 +37,6 @@
         </activity>
         <activity android:name=".FullImageActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RecorderActivity">
         </activity>

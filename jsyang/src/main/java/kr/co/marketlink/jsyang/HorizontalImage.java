@@ -49,6 +49,23 @@ public class HorizontalImage {
         recyclerView.setAdapter(horizontalImageAdapter);
 
     }
+    /**
+     * 사진 앨범을 RecyclerView에 적용
+     * @param context context
+     * @param recyclerView 적용시킬 RecyclerView
+     */
+    public HorizontalImage(Context context, RecyclerView recyclerView,int itemWidth){
+        this.itemWidth=itemWidth;
+        //이미지 가져오기
+        List<String> list=getImages(context);
+        //RecyclerView에 Adapter 적용
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        horizontalImageAdapter = new HorizontalImage.HorizontalImageAdapter(context,list);
+        recyclerView.setAdapter(horizontalImageAdapter);
+
+    }
 
     /**
      * 최대로 선택할 수 있는 개수 지정
@@ -83,6 +100,7 @@ public class HorizontalImage {
             int selectedIndex=selectedList.indexOf(viewHolder.imageUri);
             if(selectedIndex>-1){
                 selectedList.remove(selectedIndex);
+
             } else {
                 if(selectedList.size()>=_maxSelect)return;
                 selectedList.add(viewHolder.imageUri);
@@ -139,6 +157,7 @@ public class HorizontalImage {
         public class ViewHolder extends RecyclerView.ViewHolder {
             FrameLayout mFrameLayout;
             ImageView iv_img;
+            View v_mask;
             TextView tv_num;
             String imageUri;
             ViewHolder(FrameLayout frameLayout) {
@@ -148,6 +167,7 @@ public class HorizontalImage {
                 mFrameLayout.setTag(this);
                 iv_img =(ImageView)frameLayout.findViewById(R.id.iv_img);
                 tv_num =(TextView) frameLayout.findViewById(R.id.tv_num);
+                v_mask =frameLayout.findViewById(R.id.v_mask);
             }
         }
 
@@ -176,9 +196,8 @@ public class HorizontalImage {
             holder.iv_img.getLayoutParams().height= itemWidth;
             holder.iv_img.requestLayout();
             holder.iv_img.setImageBitmap(null);
-            holder.mFrameLayout.setLayoutParams(new ViewGroup.LayoutParams(itemWidth, itemWidth));
+            holder.mFrameLayout.setLayoutParams(new ViewGroup.LayoutParams(((Double)(itemWidth/1.33)).intValue(), itemWidth));
             holder.imageUri=mList.get(position);
-            Common.log(mList.get(position));
             Picasso.with(mContext)
                     .load(Uri.parse("file://" + mList.get(position)))
                     .noPlaceholder()
@@ -193,8 +212,10 @@ public class HorizontalImage {
             if(selectedIndex>-1){
                 holder.tv_num.setText(Integer.toString(selectedIndex+1));
                 holder.tv_num.setVisibility(View.VISIBLE);
+                holder.v_mask.setVisibility(View.VISIBLE);
             } else {
                 holder.tv_num.setVisibility(View.GONE);
+                holder.v_mask.setVisibility(View.GONE);
             }
         }
 

@@ -33,6 +33,7 @@ import kr.co.marketlink.jsyang.CameraHelper;
 import kr.co.marketlink.jsyang.Common;
 import kr.co.marketlink.jsyang.FileHelper;
 import kr.co.marketlink.jsyang.PermissionHelper;
+import kr.co.marketlink.jsyang.PostHelper;
 
 public class RecorderActivity extends AppCompatActivity implements View.OnClickListener{
     final int REQUEST_PERMISSION = 1;
@@ -52,13 +53,13 @@ public class RecorderActivity extends AppCompatActivity implements View.OnClickL
 
     public void startRecording() throws IOException {
         startButton.setEnabled(false);
-        stopButton.setEnabled(true);
         //Creating file
         File dir = Environment.getExternalStorageDirectory();
+        stopButton.setEnabled(true);
         try {
             audiofile = File.createTempFile("sound", ".m4a", dir);
         } catch (IOException e) {
-            Common.log("external storage access error");
+            Common.log(e.toString());
             return;
         }
         //Creating MediaRecorder and specifying audio source, output format, encoder & output format
@@ -98,7 +99,7 @@ public class RecorderActivity extends AppCompatActivity implements View.OnClickL
 
         //Common.log("Added File " + FileHelper.uriToBase64(getApplicationContext(),newUri));
         String base64=FileHelper.uriToBase64(getApplicationContext(),newUri);
-        String path=FileHelper.base64ToFile(base64,"test123.m4a");
+        String path=FileHelper.base64ToFile(base64,Double.toString(Math.random()).substring(2,5)+".m4a");
         Uri myUri = FileHelper.pathToUri(path);
         MediaPlayer mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -109,7 +110,6 @@ public class RecorderActivity extends AppCompatActivity implements View.OnClickL
         } catch (Exception e){
             Common.log(e.toString());
         }
-
     }
 
     @Override
@@ -126,6 +126,10 @@ public class RecorderActivity extends AppCompatActivity implements View.OnClickL
         //권한 확인
         if (!PermissionHelper.hasPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO)) {
             PermissionHelper.requestPermission(this, Manifest.permission.RECORD_AUDIO, REQUEST_PERMISSION);
+            return;
+        }
+        if (!PermissionHelper.hasPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            PermissionHelper.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, REQUEST_PERMISSION);
             return;
         }
         try {
