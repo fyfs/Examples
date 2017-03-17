@@ -20,6 +20,7 @@ import java.net.URLEncoder;
  */
 
 public class PostHelper {
+
     public static void Post(int calltype, String url, Object[][] params,PostHandler handler,Activity activity) {
         HttpAsyncTask hat = new HttpAsyncTask();
         hat.calltype=calltype;
